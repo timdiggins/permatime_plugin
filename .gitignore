@@ -1,0 +1,9 @@
+*~
+log/*
+vendor/rails
+db/test.sqlite3
+public/timezones.html
+public/javascripts/all.js
+public/stylesheets/all.css
+public/.integration_test_output_for_browser.html
+.DS_Store

@@ -1,0 +1,76 @@
+Permatime Plugin
+================
+Permatime is a website that allows you to share any point in time with people in different time zones. 
+Permatime urls are easily readable in emails or documents. 
+See http://permatime.com for more information
+
+This gives an easy way to generate permatime urls from times for use within rails views,
+and (coming soon) make a more world-friendly maintenance page.
+
+
+Installation and configuration
+==============================
+1) install the plugin
+  ./script/plugin install git://github.com/red56/permatime_plugin.git
+
+
+all other configuration is optional:
+2) for advanced usage you need the tzinfo gem (http://tzinfo.rubyforge.org/)
+(this gem changes regularly to keep up with timezone updates)
+
+3) for monkeypatching (read 'Usage in rails views' below) 
+add the following in an initializer (e.g. config/initializers/permatime.rb)
+Time.send :include, PermatimeTimeMonkeypatcher
+
+4) for capistrano...
+ (coming soon)TODO: INSTRUCTIONS GO HERE
+ 
+
+
+Usage in rails views
+====================
+Out of the box it gives you a permatime helper so that you can do the following in any rails view:
+
+  <%= link_to permatime %> 
+which will generate a linked permatime url for the current date and time.
+
+  <%= link_to permatime(@mymodel.created_at.permatime) %> 
+which will generate a linked permatime url for the creationdate of a particular model instance.
+
+If instead of permatime(@mymodel.created_at), you prefer the style @mymodel.created_at.permatime 
+then you need to include the following in an initialization file (e.g. create config/initializers/permatime.rb)
+  Time.send :include, PermatimeTimeMonkeypatcher
+ 
+Whenever the permatime helper you can set a title:
+  permatime(@mymodel.created_at, :title=>'Interesting event')
+
+You can also set the time using individual setters
+  permatime(:year=>2008, :month=>12, :day=>25, hour=>00, minutes=>01, :title="Check the stockings")
+
+You can also set the time explicitly (you may also name what timezone that time should be treated as, the zone info in the time is ignored)
+  permatime(:year=>2008, :time=>Time.mktime(2008,12,25,00,01), :title="Check the stockings", :timezone=>'Europe/Finland')
+ 
+Or if you you can create a timestamp-based permatime (see http://permatime.com/about)
+  permatime(Time.now.to_i)
+or
+  permatime(:timestamp=>Time.now.to_i)
+  
+  
+Usage for maintenance page (capistrano)
+=======================================
+coming soon
+
+Advanced Usage
+==============
+The above permatimes are GMT timezones. It would be more readable for some of your readers 
+if you put the permatimes into a timezone they are likely to understand, 
+e.g. US/Pacific, Asia/Mumbai, Asia/China, Australia/Sydney, Europe/Paris
+ (the choice of timzone depends of course on what is most familiar to your viewers).
+
+So, if you have installed the tzinfo gem, you can then set the timezone when you use permatime helper:
+(Without the tzinfo gem, this will issue a warning, and issue a GMT timezone, unless you explicitly specify a time )
+ 
+  permatime(:timezone=>"US/Pacific")
+
+
+Copyright (c) 2008 Tim Diggins, released under the MIT license
