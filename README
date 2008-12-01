@@ -5,7 +5,7 @@ Permatime urls are easily readable in emails or documents.
 See http://permatime.com for more information
 
 This gives an easy way to generate permatime urls from times for use within rails views,
-and (coming soon) make a more world-friendly maintenance page.
+and (coming soon) make a globally-friendly maintenance page.
 
 
 Installation and configuration
@@ -34,7 +34,7 @@ Out of the box it gives you a permatime helper so that you can do the following 
   <%= link_to nil, permatime %> 
 which will generate a linked permatime url for the current date and time.
 
-  <%= link_to nil, permatime(@mymodel.created_at.permatime) %> 
+  <%= link_to nil, permatime(@mymodel.created_at) %> 
 which will generate a linked permatime url for the creationdate of a particular model instance.
 
 If instead of permatime(@mymodel.created_at), you prefer the style @mymodel.created_at.permatime 
