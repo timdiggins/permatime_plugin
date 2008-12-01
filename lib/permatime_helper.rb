@@ -7,8 +7,9 @@ end
 
 module PermatimeHelper
   TZINFO_AVAILABLE = TZINFO_AVAILABLE
-  def PermatimeHelper.permatime_url(time=Time.now.utc, options={})
-        if time.is_a? Hash
+
+  def permatime(time=Time.now.utc, options={})
+    if time.is_a? Hash
       options = time
       time = Time.now.utc
     end
@@ -43,7 +44,6 @@ module PermatimeHelper
     timezone, year, month, day, hour, min, title
     ] 
   end
-  def permatime(time=Time.now.utc, options={})
-    PermatimeHelper.permatime_url(time, options)
-  end
+  
+  
 end

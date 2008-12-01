@@ -1,5 +1,7 @@
 module PermatimeTimeMonkeypatcher
+  include PermatimeHelper
+  
   def permatime(options={})
-    PermatimeHelper.permatime_url(self, options)
+    super(self, options)
   end
 end
