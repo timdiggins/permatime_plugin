@@ -31,17 +31,17 @@ Usage in rails views
 ====================
 Out of the box it gives you a permatime helper so that you can do the following in any rails view:
 
-  <%= link_to permatime %> 
+  <%= link_to nil, permatime %> 
 which will generate a linked permatime url for the current date and time.
 
-  <%= link_to permatime(@mymodel.created_at.permatime) %> 
+  <%= link_to nil, permatime(@mymodel.created_at.permatime) %> 
 which will generate a linked permatime url for the creationdate of a particular model instance.
 
 If instead of permatime(@mymodel.created_at), you prefer the style @mymodel.created_at.permatime 
 then you need to include the following in an initialization file (e.g. create config/initializers/permatime.rb)
   Time.send :include, PermatimeTimeMonkeypatcher
  
-Whenever the permatime helper you can set a title:
+You can set a title for the permatime:
   permatime(@mymodel.created_at, :title=>'Interesting event')
 
 You can also set the time using individual setters
