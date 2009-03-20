@@ -6,6 +6,7 @@ default_maintenance_layout = File.expand_path(File.dirname(__FILE__))+"/maintena
 
 def hr
   puts "-" *80
+end
 
 if File::exists? maintenance_layout
   hr
