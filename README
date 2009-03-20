@@ -75,7 +75,9 @@ Usage for maintenance page (capistrano)
 
  you can preview (locally on your dev machine) the maintenance page using:
    rake preview_maintenance
-    
+    or
+  UNTIL="16:00 MST" REASON="a database upgrade" rake preview_maintenance
+   
  you can make your website just display the maintenance page using:
    cap deploy:web:disable
         or, if you want to specify how long and why, then:

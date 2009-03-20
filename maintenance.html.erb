@@ -76,7 +76,7 @@ a.permatime {
       <p>APP_NAME is currently offline for <%= reason ? reason: 'a little maintenance'%>. 
       We are really sorry for any inconvenience this may cause you. </p>
       <div id="times">
-        <p>We are offline since <strong><%= Time.now.strftime("%I:%M %p %Z") %></strong> 
+        <p>We have been offline since <strong><%= Time.now.strftime("%I:%M %p %Z") %></strong> 
            <a href="<%= permatime %>">(See it in your time zone)</a></p>
         <p>We aim to be back 
             <% if deadline %>
@@ -85,7 +85,7 @@ a.permatime {
               shortly.
             <% end %></p>
       </div>
-      <p class="note">Please <a href="#">email us</a>, if you need to get in touch.</p>
+      <p class="note">Please <a href="mailto:our-email-address">email us</a> if you need to get in touch.</p>
     </div>
   </div>
     
