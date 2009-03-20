@@ -85,13 +85,13 @@ Usage for maintenance page (capistrano)
 
 Advanced Usage
 ==============
-The above permatimes are GMT timezones. It would be more readable for some of your readers 
+The above permatimes are UTC/GMT timezones. It would be more readable for some of your readers 
 if you put the permatimes into a timezone they are likely to understand, 
 e.g. US/Pacific, Asia/Mumbai, Asia/China, Australia/Sydney, Europe/Paris
  (the choice of timzone depends of course on what is most familiar to your viewers).
 
 So, if you have installed the tzinfo gem, you can then set the timezone when you use permatime helper:
-(Without the tzinfo gem, this will issue a warning, and issue a GMT timezone, unless you explicitly specify a time )
+(Without the tzinfo gem, this will issue a warning, and issue a UTC/GMT timezone, unless you explicitly specify a time )
  
   permatime(:timezone=>"US/Pacific")
 

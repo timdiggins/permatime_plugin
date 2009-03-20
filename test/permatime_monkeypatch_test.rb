@@ -9,13 +9,13 @@ class PermatimeMonkeypatchTest < ActiveSupport::TestCase
   should "work with no params" do
     p = Time.now.permatime
     t = Time.now.utc
-    assert_equal 'http://permatime.com/%s/%04d-%02d-%02d/%02d:%02d' %["GMT", t.year, t.month, t.day, t.hour, t.min], p
+    assert_equal 'http://permatime.com/%s/%04d-%02d-%02d/%02d:%02d' %["UTC", t.year, t.month, t.day, t.hour, t.min], p
   end
   
   should "work with title set" do
     p = Time.now.permatime :title=>'My lovely title'
     t = Time.now.utc
-    assert_equal 'http://permatime.com/%s/%04d-%02d-%02d/%02d:%02d/My_lovely_title' %["GMT", t.year, t.month, t.day, t.hour, t.min], p
+    assert_equal 'http://permatime.com/%s/%04d-%02d-%02d/%02d:%02d/My_lovely_title' %["UTC", t.year, t.month, t.day, t.hour, t.min], p
   end
   
   should "work with timezone only set" do
@@ -28,7 +28,7 @@ class PermatimeMonkeypatchTest < ActiveSupport::TestCase
     if PermatimeHelper::TZINFO_AVAILABLE
       'US/Pacific'
     else
-      'GMT'
+      'UTC'
     end
   end
 end

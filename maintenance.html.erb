@@ -6,9 +6,9 @@
     <style type="text/css" charset="utf-8" rel="stylesheet">
 
 body {
-	font-family:sans-serif;
-	background-color:#999;
-	color:#000;
+  font-family:sans-serif;
+  background-color:#999;
+  color:#000;
 }
 
 h1 {
@@ -19,37 +19,37 @@ h1 {
 
 
 a {
-	color:#36F;
+  color:#36F;
 }
 
 p {
-	line-height:1.4em;	
+  line-height:1.4em;  
 }
 
 
 #wrap {
-	width:600px;
-	margin:3em auto;
-	padding:6px;
-	background-color:#CCC;
-	-webkit-border-radius: 8px;
+  width:600px;
+  margin:3em auto;
+  padding:6px;
+  background-color:#CCC;
+  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
 }
 
 #notice {
-	padding:1.5em 2em 0.5em 2em;
-	background-color:#FFF;
-	border:2px solid #AAA;
-	-webkit-border-radius: 5px;
+  padding:1.5em 2em 0.5em 2em;
+  background-color:#FFF;
+  border:2px solid #AAA;
+  -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
 }
 
 #notice p {
-	font-size:1.2em;
+  font-size:1.2em;
 }
 
 #notice #times p {
-	margin:0.2em 0;
+  margin:0.2em 0;
 }
 
 #times {
@@ -64,23 +64,30 @@ a.permatime {
 
 
 
-    	
+      
     </style>
-	<title>Maintenance notice APP NAME</title>
-	</head>
-	<body>
+  <title>Maintenance notice APP_NAME</title>
+  </head>
+  <body>
 
-	<div id="wrap">
-		<div id="notice">
-		  <h1>Maintenance Notice</h1>
-			<p>APP NAME is currently offline for a little maintenance. We are really sorry for any inconvenience this may cause you. </p>
-			<div id="times">
-			  <p>We are offline since <strong>14.30 CET</strong> <a href="#" class="permatime">(See it in your time zone)</a></p>
-			  <p>We aim to be back by <strong>14.35 CET</strong> <a href="#" class="permatime">(See it in your time zone)</a></p>
-			</div>
+  <div id="wrap">
+    <div id="notice">
+      <h1>Maintenance Notice</h1>
+      <p>APP_NAME is currently offline for <%= reason ? reason: 'a little maintenance'%>. 
+      We are really sorry for any inconvenience this may cause you. </p>
+      <div id="times">
+        <p>We are offline since <strong><%= Time.now.strftime("%I:%M %p %Z") %></strong> 
+           <a href="<%= permatime %>">(See it in your time zone)</a></p>
+        <p>We aim to be back 
+            <% if deadline %>
+              by <strong><%=deadline%></strong>.
+            <% else %>
+              shortly.
+            <% end %></p>
+      </div>
       <p class="note">Please <a href="#">email us</a>, if you need to get in touch.</p>
-		</div>
-	</div>
-		
-	</body>
+    </div>
+  </div>
+    
+  </body>
 </html>

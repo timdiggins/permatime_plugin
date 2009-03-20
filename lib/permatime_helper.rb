@@ -33,7 +33,7 @@ module PermatimeHelper
         timezone = nil
       end
     end
-    timezone ||= 'GMT'
+    timezone ||= 'UTC'
     display_time ||= time
     year = options[:year] || display_time.year
     month = options[:month] || display_time.month
