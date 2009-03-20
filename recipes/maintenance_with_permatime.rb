@@ -9,7 +9,7 @@ namespace :deploy do
       
       on_rollback { run "rm #{shared_path}/system/maintenance.html" }
       
-      path_to_template_file=File.dirname(__FILE__) + "/../../../app/views/layouts/maintenance.html.erb"
+      path_to_template_file=File.dirname(__FILE__) + "/../../../../app/views/layouts/maintenance.html.erb"
       
       deadline = ENV['UNTIL']
       reason = ENV['REASON']
