@@ -22,9 +22,18 @@ all other configuration is optional:
 add the following in an initializer (e.g. config/initializers/permatime.rb)
 Time.send :include, PermatimeTimeMonkeypatcher
 
-4) for capistrano...
- (coming soon)TODO: INSTRUCTIONS GO HERE
+4) for the maintenance page...
+ to display the maintenance page during deployment
+ add the following to your deploy.rb file:
+ require 'permatime'
+ require 'permaime/recipes'
  
+ This requires config of your web/proxy server (apache, nginx etc). 
+ This is not covered here, but you've probably already done this
+
+ You should at a minimum customize the maintenance page with the name of the app:
+   /app/views/layouts/maintenance.html.erb
+  
 
 
 Usage in rails views
@@ -58,7 +67,21 @@ or
   
 Usage for maintenance page (capistrano)
 =======================================
-coming soon
+ you can adjust the maintenance page by editing
+   /app/views/layouts/maintenance.html.erb
+
+ you can preview (locally on your dev machine) the maintenance page using:
+   rake preview_maintenance
+    
+ you can make your website just display the maintenance page using:
+   cap disable_web
+        or, if you want to specify how long and why, then:
+   UNTIL="16:00 MST" REASON="a database upgrade" cap disable_web
+ 
+ you can reverse this using:
+   cap enable_web
+   
+
 
 Advanced Usage
 ==============
