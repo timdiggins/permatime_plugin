@@ -119,7 +119,8 @@
                     <p>
                         Offline since: <strong><%= Time.now.strftime("%I:%M %p %Z") %></strong>
                         <a href="<%= permatime %>" class="permatime" title="Open permatime.com">See it in your time zone</a></p>
-                        <br />
+                    </p>
+                    <p>
                         We should be back <% if deadline %>
                         by <strong><%=deadline %></strong>.<% else %>
                         up shortly.<% end %>
