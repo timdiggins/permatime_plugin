@@ -15,6 +15,8 @@
         #------------------------------------------------------------------------
         app_name = "Our wonderful application"
                     #replace with your real application name
+        reason = "an update"
+                    #replace with the reason your site will be down for
         twitter_id = "my_twitter_id" 
                     #replace with nil if you don't have a twitter id for this app 
         #alternatively:
@@ -28,77 +30,110 @@
             
             body {
                 font-family: sans-serif;
-                background-color: #999;
+                background-color: #EEE;
                 color: #000;
+                text-align:center;
             }
             
             h1 {
-                font-size: 1.6em;
-                color: #000;
+                font-size: 1.8em;
+                color: #6A0;
                 margin-bottom: 1em;
             }
             
             a {
-                color: #36F;
+                color: #369;
             }
             
             p {
                 line-height: 1.4em;
-            } #wrap {
-                width: 600px;
-                margin: 3em auto;
-                padding: 6px;
-                background-color: #CCC;
-                -webkit-border-radius: 8px;
-                -moz-border-radius: 8px;
-            } #notice {
-                padding: 1.5em 2em 0.5em 2em;
+            }
+            
+            #wrap {
+                width: 640px;
+                margin: 3em auto 0 auto;
+                padding: 10px;
+                background-color: #DDD;
+                -webkit-border-radius: 6px;
+                -moz-border-radius: 6px;
+                text-align:left;
+            }
+            
+            #notice {
+                padding: 1.5em 2.5em 1em 2.5em;
                 background-color: #FFF;
-                border: 2px solid #AAA;
-                -webkit-border-radius: 5px;
-                -moz-border-radius: 5px;
-            } #notice p {
+                border: 1px solid #999;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+            }
+            
+            #notice p {
                 font-size: 1.2em;
-            } #notice #times p {
-                margin: 0.2em 0;
-            } #times {
-                margin: 1.5em 0 2.5em 0;
+            }
+            
+            #notice #times p {
+                margin: 0;
+            }
+            
+            #times {
+                margin: 1.5em 0 3em 0;
             }
             
             a.permatime {
                 font-size: 0.8em;
                 font-weight: bold;
+                background: transparent url("http://permatime.com/images/icon2_16x16.gif") no-repeat left 0.2em;
+                padding:0.2em 0 0.2em 18px;
+                margin-left:0.5em;
             }
+            
+            #notice p.note {
+              color:#999;
+              font-size:1em;
+            }
+            
+            p.credit {
+                font-size:0.9em;
+                color:#999;
+                width: 630px;
+                margin: 0.5em auto;
+                text-align:right;
+            }
+            
+            p.credit a {
+                color:#999;
+            }
+            
         </style>
         <title>Maintenance notice for <%=app_name%></title>
     </head>
     <body>
         <div id="wrap">
             <div id="notice">
-                <h1>Maintenance Notice (<%=app_name%>)</h1>
+                <h1>Maintenance Notice</h1>
                 <p>
-                    <%=app_name%> is currently offline for <%= reason ? reason: 'a little maintenance' %>. 
+                    <%=app_name%> is currently offline for <%= reason %>. 
                     We are really sorry for any inconvenience this may cause you. 
                 </p>
                 <div id="times">
                     <p>
                         We have been offline since <strong><%= Time.now.strftime("%I:%M %p %Z") %></strong>
-           				<a href="<%= permatime %>">(See it in your time zone)</a></p>
+                        <a href="<%= permatime %>" class="permatime" title="Open permatime.com">See it in your time zone</a></p>
                     </p>
                     <p>
-                        We aim to be back <% if deadline %>
+                        We should be back <% if deadline %>
                         by <strong><%=deadline %></strong>.<% else %>
-                        shortly.<% end %>
+                        up shortly.<% end %>
                     </p>
                 </div>
                 <p class="note">
                     <% if twitter_id %>
-                      There may be more info about this on our <a href="http://twitter.com/<%=twitter_id%>">Twitter feed</a>. 
+                      Check our <a href="http://twitter.com/<%=twitter_id%>">Twitter feed</a> for more details. 
                       You can <a href="http://twitter.com/direct_messages/create/<%=twitter_id%>">direct message us</a>
                       if you need to get in touch.
                     <%else %>
                       <% if website_url %>
-                         There may be more info about this at <a href="<%=website_url%>"><%= website_url %></a>.
+                         Visit <a href="<%=website_url%>"><%= website_url %></a> for more details.
                       <% end %>
                       <% if email_address %>
                           You can <a href="mailto:our-email-address">email us</a>
@@ -108,5 +143,6 @@
                </p>
             </div>
         </div>
+        <p class="credit">powered by <a href="http://permatime.com/">permatime.com</a></p>
     </body>
 </html>
