@@ -15,8 +15,9 @@
         #------------------------------------------------------------------------
         app_name = "Our wonderful application"
                     #replace with your real application name
-        reason = "an update"
-                    #replace with the reason your site will be down for
+        default_reason = "an update"
+                    #replace with the reason your site will be down for 
+                    #or you can pass in as an environment variable
         twitter_id = "my_twitter_id" 
                     #replace with nil if you don't have a twitter id for this app 
         #alternatively:
@@ -112,7 +113,7 @@
             <div id="notice">
                 <h1>Maintenance Notice</h1>
                 <p>
-                    <%=app_name%> is currently offline for <%= reason %>. 
+                    <%=app_name%> is currently offline for <%= reason ? reason : default_reason %>. 
                     We are really sorry for any inconvenience this may cause you. 
                 </p>
                 <div id="times">
@@ -121,9 +122,9 @@
                         <a href="<%= permatime %>" class="permatime" title="Open permatime.com">See it in your time zone</a></p>
                     </p>
                     <p>
-                        We should be back <% if deadline %>
+                        We should be back up <% if deadline %>
                         by <strong><%=deadline %></strong>.<% else %>
-                        up shortly.<% end %>
+                        shortly.<% end %>
                     </p>
                 </div>
                 <p class="note">
