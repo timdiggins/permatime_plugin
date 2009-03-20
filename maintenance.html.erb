@@ -20,10 +20,10 @@
         twitter_id = "my_twitter_id" 
                     #replace with nil if you don't have a twitter id for this app 
         #alternatively:
+        website_url = nil 
+                      #replace with "http://our_site.com" if you have an alternative site where more downtime info can be found
         email_address = nil 
                     #replace with "our@emailaddress" if  want to be contacted by email 
-        website_url = nil 
-                    #replace with "http://our_site.com" if you have an alternative site where more downtime info can be found  
         %>
         <meta content="text/html; charset=utf-8" http-equiv="content-type">
         <style type="text/css" charset="utf-8" rel="stylesheet">
@@ -128,17 +128,15 @@
                 </div>
                 <p class="note">
                     <% if twitter_id %>
-                      Check our <a href="http://twitter.com/<%=twitter_id%>">Twitter feed</a> for more details. 
-                      You can <a href="http://twitter.com/direct_messages/create/<%=twitter_id%>">direct message us</a>
-                      if you need to get in touch.
+                      Check our <a href="http://twitter.com/<%=twitter_id%>">Twitter feed</a> for more details.
                     <%else %>
                       <% if website_url %>
                          Visit <a href="<%=website_url%>"><%= website_url %></a> for more details.
                       <% end %>
-                      <% if email_address %>
-                          You can <a href="mailto:our-email-address">email us</a>
-                          if you need to get in touch.
-                      <% end %>
+                    <% end %>
+                    <% if email_address %>
+                        You can <a href="mailto:our-email-address">email us</a>
+                        if you need to get in touch.
                     <% end %>
                </p>
             </div>
