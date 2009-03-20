@@ -24,18 +24,12 @@ Time.send :include, PermatimeTimeMonkeypatcher
 
 4) For the maintenance page when your application is offline...
 (based on Mike Clark's Recipe in Advanced Rails Recipes and his weblog)
- 
- to display the maintenance page during deployment
- add the following to your deploy.rb file:
- require 'permatime'
- require 'permaime/recipes'
- 
- This requires config of your web/proxy server (apache, nginx etc) to serve up this maintenance page
- when it exists (thus ignoring the whole of your webapp if available). 
- This is not covered here, but you've probably already done this.
 
- You should at a minimum customize the maintenance page with the name of the app:
+ You should at a minimum customize the maintenance page with the name of the app and your twitter id if you have one:
    /app/views/layouts/maintenance.html.erb
+ 
+ This replaces capistrano's vanilla maintenance page - and requires config of your web/proxy server (apache, nginx etc) to serve up this maintenance page
+ when it exists (thus ignoring the whole of your webapp if available).  This is not covered here, but you've probably already done this.
   
 
 
