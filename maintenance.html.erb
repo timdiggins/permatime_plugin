@@ -1,6 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
+<!--
 
+This is the maintenance page installed by the permatime plugin
+  see: http://github.com/red56/permatime_plugin/tree/master#readme
+	
+This template is rendered and uploaded during capistrano deployment tasks,
+speciically cap deploy:web:disable
+
+Because it is rendered by capistrano it has no access to normal rails
+methods and helpers - i.e. it's mostly vanilla html and some ruby.
+ 
+-->
 
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <style type="text/css" charset="utf-8" rel="stylesheet">
