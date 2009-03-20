@@ -117,10 +117,9 @@
                 </p>
                 <div id="times">
                     <p>
-                        We have been offline since <strong><%= Time.now.strftime("%I:%M %p %Z") %></strong>
+                        Offline since: <strong><%= Time.now.strftime("%I:%M %p %Z") %></strong>
                         <a href="<%= permatime %>" class="permatime" title="Open permatime.com">See it in your time zone</a></p>
-                    </p>
-                    <p>
+                        <br />
                         We should be back <% if deadline %>
                         by <strong><%=deadline %></strong>.<% else %>
                         up shortly.<% end %>
