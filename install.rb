@@ -1,9 +1,10 @@
 # This run when the permatime_plugin installed
 require 'ftools'
  
-maintenance_layout = File.expand_path("#{File.dirname(__FILE__)}/../../../app/views/layouts/maintenance.html.erb")
-default_maintenance_layout = "#{File.dirname(__FILE__)}/maintenance.html.erb"
- 
+maintenance_layout = File.expand_path(RAILS_ROOT)+"/app/views/layouts/maintenance.html.erb"
+default_maintenance_layout = File.expand_path(File.dirname(__FILE__))+"/maintenance.html.erb"
+  puts "  from #{default_maintenance_layout}"
+  puts "  to   #{maintenance_layout}"
 if File::exists? maintenance_layout
   puts "You already have a maintenance layout at #{maintenance_layout}."
   puts "But, you might want to compare with ours:"
