@@ -14,6 +14,8 @@ if File::exists? maintenance_layout
   hr
   puts "But, you might want to compare with ours:"
   puts "  #{default_maintenance_layout}"
+  puts " and use 'rake preview_maintenance' to see what it will look like"
+
   hr
 else  
   hr
@@ -21,7 +23,9 @@ else
   puts "  to #{maintenance_layout}"
   hr
   puts "You definitely want to customize this" 
-  puts "  (put your correct APP_NAME and email address)"
+  puts "  (put your correct app_name and twitter_id for example)"
   File.copy default_maintenance_layout, maintenance_layout
+  puts " 'rake preview_maintenance' to see what it will look like"
   hr
 end
+

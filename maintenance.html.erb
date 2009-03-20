@@ -15,12 +15,13 @@
         #------------------------------------------------------------------------
         app_name = "Our wonderful application"
                     #replace with your real application name
-        email_address = "our@emailaddress" 
-                    #replace with nil if you don't want to be contacted by email 
-        website_url = "http://our_site.com" 
-                    #replace with nil if you don't have an alternative site where more downtime info can be found  
         twitter_id = "my_twitter_id" 
-                    #replace with nil if you don't have a twitter id 
+                    #replace with nil if you don't have a twitter id for this app 
+        #alternatively:
+        email_address = nil 
+                    #replace with "our@emailaddress" if  want to be contacted by email 
+        website_url = nil 
+                    #replace with "http://our_site.com" if you have an alternative site where more downtime info can be found  
         %>
         <meta content="text/html; charset=utf-8" http-equiv="content-type">
         <style type="text/css" charset="utf-8" rel="stylesheet">
@@ -94,7 +95,7 @@
                     <% if twitter_id %>
                       There may be more info about this on our <a href="http://twitter.com/<%=twitter_id%>">Twitter feed</a>. 
                       You can <a href="http://twitter.com/direct_messages/create/<%=twitter_id%>">direct message us</a>
-                      if you need to get in touch.<% end %>
+                      if you need to get in touch.
                     <%else %>
                       <% if website_url %>
                          There may be more info about this at <a href="<%=website_url%>"><%= website_url %></a>.
@@ -104,7 +105,7 @@
                           if you need to get in touch.
                       <% end %>
                     <% end %>
-                </p>
+               </p>
             </div>
         </div>
     </body>
